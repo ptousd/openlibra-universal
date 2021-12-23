@@ -1,0 +1,33 @@
+.container {
+  width: 75vw;
+}
+
+.content {
+  margin-left: 1em;
+  max-width: 400px;
+}
+
+.tag {
+  display: inline;
+  margin: 3px;
+  padding: 5px;
+  background-color: rgb(78, 167, 189);
+}
+
+.tab-content {
+  margin-top: 1em;
+}
+
+.tag-list {
+  min-height: 300px;
+}
+
+.title {
+  padding-left: 1em;
+  margin-top: 8px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}

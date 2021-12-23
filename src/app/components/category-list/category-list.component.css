@@ -1,0 +1,25 @@
+.mat-list-item {
+  background-color: rgb(78, 167, 189);
+}
+
+h2 {
+  background-color: gray;
+  margin: 0.3em 0 0;
+}
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 125px;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.novedades-button {
+  width: 100%;
+  background-color: rgb(78, 167, 189);
+}
+
+.menu {
+  background-color: rgba(128, 128, 128, 0.637);
+}

@@ -1,0 +1,11 @@
+<h1 fxLayout="row" fxLayoutAlign="center center">
+  <mat-icon>library_books</mat-icon> The Open Book Library
+</h1>
+<div fxLayout="column" fxLayout.gt-md="row">
+  <div fxFlex.gt-md="250px">
+    <app-category-list></app-category-list>
+  </div>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</div>

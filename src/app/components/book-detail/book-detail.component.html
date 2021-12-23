@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="requestKo" fxLayout="row" fxLayoutAlign="center">
+    <p id="bookFeedback" class="hide"></p>
+  </div>
+
+  <div
+    class="title"
+    fxLayout="column"
+    fxLayout.gt-xs="row"
+    fxLayoutAlign="start center"
+  >
+    <h2 fxFlex="50%">{{ book.title }}</h2>
+    <button fxFlex="50%" mat-button (click)="back()">BACK</button>
+  </div>
+  <mat-accordion>
+    <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title>{{
+          panelOpenState ? "Ocultar Detalles" : "Mostrar Detalles"
+        }}</mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-tab-group>
+        <mat-tab label="Portada">
+          <div class="tab-content" fxLayout="row wrap">
+            <img
+              fxFlex="250px"
+              fxFlex.gt-xs="321px"
+              width="321px"
+              height="461px"
+              alt="Portada {{ book.title }}"
+              [src]="book.cover"
+            />
+            <div class="content">
+              <p><strong>Autor:</strong> {{ book.author }}</p>
+              <p [innerHtml]="book.content_short | safeHtml"></p>
+              <p><strong>Valora este título</strong></p>
+              <mat-slider
+                min="0"
+                max="10"
+                thumbLabel="true"
+                aria-labelledby="Valoración Título"
+                [(ngModel)]="score"
+              ></mat-slider>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Detalles">
+          <div class="tab-content">
+            <p><strong>Editorial:</strong> {{ book.publisher }}</p>
+            <p><strong>Año publicación: </strong>{{ book.publisher_date }}</p>
+            <p><strong>Num. Páginas:</strong> {{ book.pages }}</p>
+            <p><strong>Idioma:</strong> {{ book.language }}</p>
+            <p><strong>Comentarios:</strong> {{ book.num_comments }}</p>
+            <p><strong>Contenido</strong></p>
+            <p [innerHtml]="book.content | safeHtml"></p>
+            <mat-list>
+              <div mat-subheader>Categorías</div>
+              <mat-list-item *ngFor="let caegory of book.categories">
+                {{ caegory.name }}
+              </mat-list-item>
+              <mat-divider></mat-divider>
+            </mat-list>
+            <p>
+              <a [href]="book.url_download | secureUrl" target="#"
+                >Pulsa aquí para descargar el PDF</a
+              >
+            </p>
+          </div>
+        </mat-tab>
+        <mat-tab label="Tags">
+          <div class="tag-list tab-content">
+            <mat-chip-list>
+              <mat-chip *ngFor="let tag of book.tags">
+                {{ tag.name }}
+              </mat-chip>
+              <mat-divider></mat-divider>
+            </mat-chip-list>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

@@ -1,0 +1,32 @@
+<div fxHide fxShow.gt-md>
+  <div class="spinner">
+    <div fxLayout="column" fxLayoutAlign="center center" *ngIf="!loaded">
+      <mat-spinner diameter="150"></mat-spinner>
+    </div>
+  </div>
+  <mat-action-list>
+    <button mat-list-item (click)="showNewest()">Novedades</button>
+    <button
+      mat-list-item
+      *ngFor="let category of categories"
+      (click)="showByCategory(category.nicename, category.name)"
+    >
+      {{ category.name }}
+    </button>
+  </mat-action-list>
+</div>
+<div fxShow fxHide.gt-md class="menu">
+  <button aria-label="Menú" mat-button [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="showNewest()">Novedades</button>
+    <button
+      mat-menu-item
+      *ngFor="let category of categories"
+      (click)="showByCategory(category.nicename, category.name)"
+    >
+      {{ category.name }}
+    </button>
+  </mat-menu>
+</div>
