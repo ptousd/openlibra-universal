@@ -13,6 +13,5 @@ export class PageNotFoundComponent implements OnInit {
 
   ngOnInit() {
     this.href = this.router.url;
-    console.log(this.router.url);
   }
 }

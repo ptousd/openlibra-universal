@@ -19,7 +19,6 @@ export class OpenlibraService {
   }
 
   getBooks(filter: string): Observable<BookDTO[]> {
-    console.log('Filtro: ' + filter);
     return this.http.get<BookDTO[]>(this.urlApi + filter);
   }
 

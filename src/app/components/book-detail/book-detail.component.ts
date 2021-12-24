@@ -42,12 +42,10 @@ export class BookDetailComponent implements OnInit {
       categories: [],
       tags: [],
     };
-    console.log('Hola');
     this.loadBook(this.activatedRoute.snapshot.paramMap.get('id'));
   }
 
   loadBook(bookId: string | null) {
-    console.log('BookId:' + bookId);
     if (bookId) {
       this.openlibraService.getBookById(bookId).subscribe(
         (books: BookDTO[]) => {
