@@ -31,7 +31,7 @@
               width="321px"
               height="461px"
               alt="Portada {{ book.title }}"
-              [src]="book.cover"
+              [src]="book.cover | secureUrl"
             />
             <div class="content">
               <p><strong>Autor:</strong> {{ book.author }}</p>
